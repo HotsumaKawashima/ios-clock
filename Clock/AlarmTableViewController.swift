@@ -39,7 +39,7 @@ class AlarmTableViewController: UITableViewController, AddAlarmViewControllerDel
         navigationController?.pushViewController(addVC, animated: true)
     }
     
-    @objc func alarmSwithChange(_ sender: UISwitch) {
+    @objc func alarmSwitchChange(_ sender: UISwitch) {
         if sender.isOn {
             print("1")
         } else {
@@ -59,6 +59,14 @@ class AlarmTableViewController: UITableViewController, AddAlarmViewControllerDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! ClockTableViewCell
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
+        cell.backgroundColor = .black
+        let alarmSwitch: UISwitch = {
+            let alarmS = UISwitch()
+            alarmS.isOn = true
+            alarmS.addTarget(self, action: #selector(alarmSwitchChange), for: .valueChanged)
+            return alarmS
+        }()
+        cell.accessoryView = alarmSwitch
         cell.timeLabel.text = dateFormatter.string(from: alarmClocks[indexPath.row].time)
         cell.detailLabel.text = alarmClocks[indexPath.row].label
         return cell
@@ -67,6 +75,7 @@ class AlarmTableViewController: UITableViewController, AddAlarmViewControllerDel
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            alarmClocks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

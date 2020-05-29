@@ -26,19 +26,18 @@ class ClockTableViewCell: UITableViewCell {
         return dl
     }()
     
-    let alarmSwith: UISwitch = {
-        let alarms = UISwitch()
-        alarms.translatesAutoresizingMaskIntoConstraints = false
-        alarms.isOn = true
-        return alarms
-    }()
+//    let alarmSwith: UISwitch = {
+//        let alarms = UISwitch()
+//        alarms.translatesAutoresizingMaskIntoConstraints = false
+//        alarms.isOn = true
+//        return alarms
+//    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .black
         contentView.addSubview(timeLabel)
         contentView.addSubview(detailLabel)
-        contentView.addSubview(alarmSwith)
+//        contentView.addSubview(alarmSwith)
         
         NSLayoutConstraint.activate([
             timeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
@@ -47,8 +46,8 @@ class ClockTableViewCell: UITableViewCell {
             detailLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             detailLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             
-            alarmSwith.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            alarmSwith.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
+//            alarmSwith.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+//            alarmSwith.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
         ])
     }
     
