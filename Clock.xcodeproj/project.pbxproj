@@ -13,8 +13,11 @@
 		04FFD553247FA80A00B951A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04FFD551247FA80A00B951A4 /* LaunchScreen.storyboard */; };
 		04FFD55B247FA84200B951A4 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD55A247FA84200B951A4 /* Clock.swift */; };
 		04FFD567247FC64D00B951A4 /* AlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD566247FC64D00B951A4 /* AlarmTableViewController.swift */; };
-		04FFD569247FCA5C00B951A4 /* AddAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD568247FCA5C00B951A4 /* AddAlarmViewController.swift */; };
 		04FFD56B247FFA7800B951A4 /* ClockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD56A247FFA7800B951A4 /* ClockTableViewCell.swift */; };
+		04FFD573248158B400B951A4 /* RepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD572248158B400B951A4 /* RepeatViewController.swift */; };
+		04FFD57524815CD100B951A4 /* AddAlarmClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD57424815CD100B951A4 /* AddAlarmClockViewController.swift */; };
+		04FFD577248160C100B951A4 /* AddAlarmClockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD576248160C100B951A4 /* AddAlarmClockTableViewCell.swift */; };
+		04FFD5792482421700B951A4 /* LabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD5782482421700B951A4 /* LabelViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +29,11 @@
 		04FFD554247FA80A00B951A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04FFD55A247FA84200B951A4 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		04FFD566247FC64D00B951A4 /* AlarmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmTableViewController.swift; sourceTree = "<group>"; };
-		04FFD568247FCA5C00B951A4 /* AddAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewController.swift; sourceTree = "<group>"; };
 		04FFD56A247FFA7800B951A4 /* ClockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockTableViewCell.swift; sourceTree = "<group>"; };
+		04FFD572248158B400B951A4 /* RepeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatViewController.swift; sourceTree = "<group>"; };
+		04FFD57424815CD100B951A4 /* AddAlarmClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmClockViewController.swift; sourceTree = "<group>"; };
+		04FFD576248160C100B951A4 /* AddAlarmClockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmClockTableViewCell.swift; sourceTree = "<group>"; };
+		04FFD5782482421700B951A4 /* LabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +73,11 @@
 				04FFD554247FA80A00B951A4 /* Info.plist */,
 				04FFD55A247FA84200B951A4 /* Clock.swift */,
 				04FFD566247FC64D00B951A4 /* AlarmTableViewController.swift */,
-				04FFD568247FCA5C00B951A4 /* AddAlarmViewController.swift */,
+				04FFD57424815CD100B951A4 /* AddAlarmClockViewController.swift */,
 				04FFD56A247FFA7800B951A4 /* ClockTableViewCell.swift */,
+				04FFD572248158B400B951A4 /* RepeatViewController.swift */,
+				04FFD576248160C100B951A4 /* AddAlarmClockTableViewCell.swift */,
+				04FFD5782482421700B951A4 /* LabelViewController.swift */,
 			);
 			path = Clock;
 			sourceTree = "<group>";
@@ -144,11 +153,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				04FFD56B247FFA7800B951A4 /* ClockTableViewCell.swift in Sources */,
-				04FFD569247FCA5C00B951A4 /* AddAlarmViewController.swift in Sources */,
 				04FFD547247FA80400B951A4 /* AppDelegate.swift in Sources */,
 				04FFD567247FC64D00B951A4 /* AlarmTableViewController.swift in Sources */,
+				04FFD573248158B400B951A4 /* RepeatViewController.swift in Sources */,
 				04FFD55B247FA84200B951A4 /* Clock.swift in Sources */,
+				04FFD5792482421700B951A4 /* LabelViewController.swift in Sources */,
+				04FFD577248160C100B951A4 /* AddAlarmClockTableViewCell.swift in Sources */,
 				04FFD549247FA80400B951A4 /* SceneDelegate.swift in Sources */,
+				04FFD57524815CD100B951A4 /* AddAlarmClockViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,6 @@ class ClockTableViewCell: UITableViewCell {
         let tl = UILabel()
         tl.translatesAutoresizingMaskIntoConstraints = false
         tl.font = tl.font.withSize(50)
-        tl.textColor = .white
         return tl
     }()
     
@@ -22,22 +21,13 @@ class ClockTableViewCell: UITableViewCell {
         let dl = UILabel()
         dl.translatesAutoresizingMaskIntoConstraints = false
         dl.font = dl.font.withSize(20)
-        dl.textColor = .white
         return dl
     }()
-    
-//    let alarmSwith: UISwitch = {
-//        let alarms = UISwitch()
-//        alarms.translatesAutoresizingMaskIntoConstraints = false
-//        alarms.isOn = true
-//        return alarms
-//    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(timeLabel)
         contentView.addSubview(detailLabel)
-//        contentView.addSubview(alarmSwith)
         
         NSLayoutConstraint.activate([
             timeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
@@ -45,9 +35,6 @@ class ClockTableViewCell: UITableViewCell {
             
             detailLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             detailLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            
-//            alarmSwith.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-//            alarmSwith.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10)
         ])
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlarmTableViewController: UITableViewController, AddAlarmViewControllerDelegate {
+class AlarmTableViewController: UITableViewController, AddAlarmClockViewControllerDelegate {
     
     var alarmClocks: [Clock] = []
     
@@ -34,23 +34,24 @@ class AlarmTableViewController: UITableViewController, AddAlarmViewControllerDel
     }
     
     @objc func addAlarm(_ sender: UIBarButtonItem) {
-        let addVC = AddAlarmViewController()
+        let addVC = AddAlarmClockViewController()
         addVC.delegate = self
         navigationController?.pushViewController(addVC, animated: true)
     }
     
     @objc func alarmSwitchChange(_ sender: UISwitch) {
         if sender.isOn {
-            print("1")
+            alarmClocks[Int(sender.restorationIdentifier!)!].isActive = true
         } else {
-            print("2")
+            alarmClocks[Int(sender.restorationIdentifier!)!].isActive = false
         }
+        tableView.reloadData()
     }
     
     
 
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return alarmClocks.count
     }
@@ -62,19 +63,27 @@ class AlarmTableViewController: UITableViewController, AddAlarmViewControllerDel
         cell.backgroundColor = .black
         let alarmSwitch: UISwitch = {
             let alarmS = UISwitch()
-            alarmS.isOn = true
+            alarmS.isOn = alarmClocks[indexPath.row].isActive
             alarmS.addTarget(self, action: #selector(alarmSwitchChange), for: .valueChanged)
+            alarmS.restorationIdentifier = "\(indexPath.row)"
             return alarmS
         }()
         cell.accessoryView = alarmSwitch
         cell.timeLabel.text = dateFormatter.string(from: alarmClocks[indexPath.row].time)
         cell.detailLabel.text = alarmClocks[indexPath.row].label
+        if alarmSwitch.isOn {
+            cell.timeLabel.textColor = .white
+            cell.detailLabel.textColor = .white
+        } else {
+            cell.timeLabel.textColor = .gray
+            cell.detailLabel.textColor = .gray
+        }
+        
         return cell
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
             alarmClocks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

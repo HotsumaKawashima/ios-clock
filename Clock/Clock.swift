@@ -10,7 +10,8 @@ import Foundation
 
 
 struct Clock {
-    let time: Date
-    let repeated: Bool
-    let label: String
+    var time: Date
+    var repeated: Bool
+    var label: String
+    var isActive: Bool
 }
