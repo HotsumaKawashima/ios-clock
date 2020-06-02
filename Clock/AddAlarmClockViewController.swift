@@ -68,7 +68,6 @@ class AddAlarmClockViewController: UIViewController, UITableViewDelegate, UITabl
         let cell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! AddAlarmClockTableViewCell
         let label = cell.optionLabel.text!
         let repeated = weekdays
-        print(weekdays)
         let clock = Clock(time: timePicker.date, repeated: repeated, label: label, isActive: true)
         self.delegate?.add(alarm: clock)
         navigationController?.popViewController(animated: true)

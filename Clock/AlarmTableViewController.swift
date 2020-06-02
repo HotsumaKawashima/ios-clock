@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import UserNotifications
 
 class AlarmTableViewController: UITableViewController, AddAlarmClockViewControllerDelegate {
     
     var alarmClocks: [Clock] = []
+    
+    let center = UNUserNotificationCenter.current()
+    let options: UNAuthorizationOptions = [.alert, .sound]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,10 +46,48 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
     @objc func alarmSwitchChange(_ sender: UISwitch) {
         if sender.isOn {
             alarmClocks[Int(sender.restorationIdentifier!)!].isActive = true
+            setupNotification(title: alarmClocks[Int(sender.restorationIdentifier!)!].label, identifier: "\(Int(sender.restorationIdentifier!)!)", date: alarmClocks[Int(sender.restorationIdentifier!)!].time)
+            print("on")
+            center.getPendingNotificationRequests { (requests) in
+                for request in requests {
+                    print(request)
+                }
+            }
         } else {
             alarmClocks[Int(sender.restorationIdentifier!)!].isActive = false
+            center.removePendingNotificationRequests(withIdentifiers: ["\(Int(sender.restorationIdentifier!)!)"])
+            print("off")
+            center.getPendingNotificationRequests { (requests) in
+                for request in requests {
+                    print(request)
+                }
+            }
         }
         tableView.reloadData()
+    }
+    
+    func setupNotification(title: String, identifier: String, date: Date) {
+        center.requestAuthorization(options: options) { (granted, error) in
+            if !granted {
+                print("Something went wrong")
+            }
+        }
+        
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.sound = UNNotificationSound.default
+        
+        let date = date
+        let triggerDate = Calendar.current.dateComponents([.hour, .minute, .second], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+        
+        let identifier = identifier
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        center.add(request) { (error) in
+            if error != nil {
+                print("Something went wrong")
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -77,6 +119,8 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
             cell.detailLabel.textColor = .gray
         }
         
+        setupNotification(title: cell.detailLabel.text!, identifier: "\(indexPath.row)", date: alarmClocks[indexPath.row].time)
+        
         return cell
     }
 
@@ -84,6 +128,15 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
         if editingStyle == .delete {
             alarmClocks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            center.removePendingNotificationRequests(withIdentifiers: ["\(indexPath.row)"])
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.navigationBar.barStyle = .black
     }
 }
