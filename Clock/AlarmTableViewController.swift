@@ -47,8 +47,6 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
         }
         tableView.reloadData()
     }
-    
-    
 
     // MARK: - Table view data source
     

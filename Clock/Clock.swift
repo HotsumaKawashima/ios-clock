@@ -11,7 +11,7 @@ import Foundation
 
 struct Clock {
     var time: Date
-    var repeated: Bool
+    var repeated: [Int]
     var label: String
     var isActive: Bool
 }

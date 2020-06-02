@@ -10,7 +10,9 @@ import UIKit
 
 class RepeatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let days = ["Monday", "Tuesday" ,"Wednsday", "Thursday", "Friday", "Saturday", "Sunday"]
+    let days = ["Every Sunday", "Every Monday", "Every Tuesday" ,"Every Wednsday", "Every Thursday", "Every Friday", "Every Saturday"]
+    
+    var weekdays = [Int](repeating: -1, count: 7)
     
     let tableView: UITableView = {
         let tv = UITableView()
@@ -18,12 +20,17 @@ class RepeatViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return tv
     }()
     
+    typealias completionHandler = ([Int]) -> Void
+    var completion: completionHandler?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Repeat"
         tableView.allowsMultipleSelection = true
         view.addSubview(tableView)
         view.backgroundColor = .black
+        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonTapped))
+        navigationItem.leftBarButtonItem = backButton
         tableView.backgroundColor = .black
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
         tableView.delegate = self
@@ -45,17 +52,31 @@ class RepeatViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.textLabel?.text = days[indexPath.row]
         cell.textLabel?.textColor = .white
         cell.backgroundColor = .black
+        if weekdays[indexPath.row] == 0 {
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+            cell.selectionStyle = .none
+            cell.accessoryType = .checkmark
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
+        weekdays[indexPath.row] = 0
         cell?.accessoryType = .checkmark
         cell?.selectionStyle = .none
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
+        weekdays[indexPath.row] = -1
         cell?.accessoryType = .none
+    }
+    
+    @objc func backButtonTapped(_ sender: UIBarButtonItem) {
+        let completionBlock = completion
+        let repeatDays = weekdays
+        completionBlock?(repeatDays)
+        navigationController?.popViewController(animated: true)
     }
 }
