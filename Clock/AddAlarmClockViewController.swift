@@ -67,7 +67,12 @@ class AddAlarmClockViewController: UIViewController, UITableViewDelegate, UITabl
     @objc func saveAlarm(_ sender: UIBarButtonItem) {
         let cell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! AddAlarmClockTableViewCell
         let label = cell.optionLabel.text!
-        let repeated = weekdays
+        var repeated = [Int]()
+        for i in 0..<7 {
+            if weekdays[i] == 0 {
+                repeated.append(i+1)
+            }
+        }
         let clock = Clock(time: timePicker.date, repeated: repeated, label: label, isActive: true)
         self.delegate?.add(alarm: clock)
         navigationController?.popViewController(animated: true)
@@ -100,29 +105,33 @@ class AddAlarmClockViewController: UIViewController, UITableViewDelegate, UITabl
             repeatVC.weekdays = weekdays
             repeatVC.completion = { repeatDays in
                 var optionString = String()
-                for i in 0..<7 {
-                    if repeatDays[i] == 0 {
-                        switch i {
-                        case 0:
-                            optionString.append(" Sun")
-                        case 1:
-                            optionString.append(" Mon")
-                        case 2:
-                            optionString.append(" Tue")
-                        case 3:
-                            optionString.append(" Wed")
-                        case 4:
-                            optionString.append(" Thu")
-                        case 5:
-                            optionString.append(" Fri")
-                        case 6:
-                            optionString.append(" Sat")
-                        default:
-                            return
+                if !repeatDays.contains(-1) {
+                    optionString.append("Everyday")
+                } else {
+                    for i in 0..<7 {
+                        if repeatDays[i] == 0 {
+                            switch i {
+                            case 0:
+                                optionString.append(" Sun")
+                            case 1:
+                                optionString.append(" Mon")
+                            case 2:
+                                optionString.append(" Tue")
+                            case 3:
+                                optionString.append(" Wed")
+                            case 4:
+                                optionString.append(" Thu")
+                            case 5:
+                                optionString.append(" Fri")
+                            case 6:
+                                optionString.append(" Sat")
+                            default:
+                                return
+                            }
                         }
                     }
-                    self.weekdays = repeatDays
                 }
+                self.weekdays = repeatDays
                 if optionString.count > 0 {
                     cell.optionLabel.text = optionString
                 } else {

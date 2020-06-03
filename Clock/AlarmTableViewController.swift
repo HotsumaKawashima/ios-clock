@@ -30,6 +30,9 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addAlarm))
         tableView.register(ClockTableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
+        
+        // clean notification after reopen
+        center.removeAllPendingNotificationRequests()
     }
     
     func add(alarm: Clock) {
@@ -45,8 +48,8 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
     
     @objc func alarmSwitchChange(_ sender: UISwitch) {
         if sender.isOn {
-            alarmClocks[Int(sender.restorationIdentifier!)!].isActive = true
-            setupNotification(title: alarmClocks[Int(sender.restorationIdentifier!)!].label, identifier: "\(Int(sender.restorationIdentifier!)!)", date: alarmClocks[Int(sender.restorationIdentifier!)!].time)
+            alarmClocks[sender.tag].isActive = true
+            setupNotification(title: alarmClocks[sender.tag].label, identifier: "\(sender.tag)", date: alarmClocks[sender.tag].time, repeated: alarmClocks[sender.tag].repeated)
             print("on")
             center.getPendingNotificationRequests { (requests) in
                 for request in requests {
@@ -54,8 +57,16 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
                 }
             }
         } else {
-            alarmClocks[Int(sender.restorationIdentifier!)!].isActive = false
-            center.removePendingNotificationRequests(withIdentifiers: ["\(Int(sender.restorationIdentifier!)!)"])
+            alarmClocks[sender.tag].isActive = false
+            if alarmClocks[sender.tag].repeated.isEmpty {
+                center.removePendingNotificationRequests(withIdentifiers: ["\(sender.tag)"])
+            } else {
+                for i in 0..<alarmClocks[sender.tag].repeated.count {
+                    var identifier = "\(sender.tag)"
+                    identifier.append("\(alarmClocks[sender.tag].repeated[i])")
+                    center.removePendingNotificationRequests(withIdentifiers: [identifier])
+                }
+            }
             print("off")
             center.getPendingNotificationRequests { (requests) in
                 for request in requests {
@@ -66,7 +77,7 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
         tableView.reloadData()
     }
     
-    func setupNotification(title: String, identifier: String, date: Date) {
+    func setupNotification(title: String, identifier: String, date: Date, repeated: [Int]) {
         center.requestAuthorization(options: options) { (granted, error) in
             if !granted {
                 print("Something went wrong")
@@ -78,14 +89,38 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
         content.sound = UNNotificationSound.default
         
         let date = date
-        let triggerDate = Calendar.current.dateComponents([.hour, .minute, .second], from: date)
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
         
-        let identifier = identifier
-        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-        center.add(request) { (error) in
-            if error != nil {
-                print("Something went wrong")
+        let components = Calendar.current.dateComponents([.weekday, .hour, .minute, .second], from: date)
+        let hour = components.hour
+        let minute = components.minute
+        let second = components.second
+        
+        var triggerDate = DateComponents()
+        triggerDate.hour = hour
+        triggerDate.minute = minute
+        triggerDate.second = second
+        
+        if repeated.isEmpty {
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+            let identity = identifier
+            let request = UNNotificationRequest(identifier: identity, content: content, trigger: trigger)
+            center.add(request) { (error) in
+                if error != nil {
+                    print("Something went wrong")
+                }
+            }
+        } else {
+            for i in 0..<repeated.count {
+                triggerDate.weekday = repeated[i]
+                let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+                var identity = identifier
+                identity.append(contentsOf: "\(triggerDate.weekday!)")
+                let request = UNNotificationRequest(identifier: identity, content: content, trigger: trigger)
+                center.add(request) { (error) in
+                    if error != nil {
+                        print("Something went wrong")
+                    }
+                }
             }
         }
     }
@@ -105,7 +140,7 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
             let alarmS = UISwitch()
             alarmS.isOn = alarmClocks[indexPath.row].isActive
             alarmS.addTarget(self, action: #selector(alarmSwitchChange), for: .valueChanged)
-            alarmS.restorationIdentifier = "\(indexPath.row)"
+            alarmS.tag = indexPath.row
             return alarmS
         }()
         cell.accessoryView = alarmSwitch
@@ -114,21 +149,28 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
         if alarmSwitch.isOn {
             cell.timeLabel.textColor = .white
             cell.detailLabel.textColor = .white
+            setupNotification(title: cell.detailLabel.text!, identifier: "\(indexPath.row)", date: alarmClocks[indexPath.row].time, repeated: alarmClocks[indexPath.row].repeated)
         } else {
             cell.timeLabel.textColor = .gray
             cell.detailLabel.textColor = .gray
         }
-        
-        setupNotification(title: cell.detailLabel.text!, identifier: "\(indexPath.row)", date: alarmClocks[indexPath.row].time)
-        
         return cell
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            if alarmClocks[indexPath.row].repeated.isEmpty {
+                let identifier = "\(indexPath.row)"
+                center.removePendingNotificationRequests(withIdentifiers: [identifier])
+            } else {
+                for i in 0..<alarmClocks[indexPath.row].repeated.count {
+                    var identifier = "\(indexPath.row)"
+                    identifier.append(contentsOf: "\(alarmClocks[indexPath.row].repeated[i])")
+                    center.removePendingNotificationRequests(withIdentifiers: [identifier])
+                }
+            }
             alarmClocks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            center.removePendingNotificationRequests(withIdentifiers: ["\(indexPath.row)"])
         }
     }
     
