@@ -14,4 +14,5 @@ struct Clock {
     var repeated: [Int]
     var label: String
     var isActive: Bool
+    var sound: String
 }

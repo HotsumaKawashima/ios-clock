@@ -18,6 +18,8 @@
 		04FFD57524815CD100B951A4 /* AddAlarmClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD57424815CD100B951A4 /* AddAlarmClockViewController.swift */; };
 		04FFD577248160C100B951A4 /* AddAlarmClockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD576248160C100B951A4 /* AddAlarmClockTableViewCell.swift */; };
 		04FFD5792482421700B951A4 /* LabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD5782482421700B951A4 /* LabelViewController.swift */; };
+		04FFD57D2487CAE700B951A4 /* SoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD57C2487CAE700B951A4 /* SoundViewController.swift */; };
+		04FFD57F2487CF0000B951A4 /* SoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD57E2487CF0000B951A4 /* SoundTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		04FFD57424815CD100B951A4 /* AddAlarmClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmClockViewController.swift; sourceTree = "<group>"; };
 		04FFD576248160C100B951A4 /* AddAlarmClockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmClockTableViewCell.swift; sourceTree = "<group>"; };
 		04FFD5782482421700B951A4 /* LabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
+		04FFD57C2487CAE700B951A4 /* SoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewController.swift; sourceTree = "<group>"; };
+		04FFD57E2487CF0000B951A4 /* SoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 				04FFD572248158B400B951A4 /* RepeatViewController.swift */,
 				04FFD576248160C100B951A4 /* AddAlarmClockTableViewCell.swift */,
 				04FFD5782482421700B951A4 /* LabelViewController.swift */,
+				04FFD57C2487CAE700B951A4 /* SoundViewController.swift */,
+				04FFD57E2487CF0000B951A4 /* SoundTableViewCell.swift */,
 			);
 			path = Clock;
 			sourceTree = "<group>";
@@ -156,6 +162,8 @@
 				04FFD547247FA80400B951A4 /* AppDelegate.swift in Sources */,
 				04FFD567247FC64D00B951A4 /* AlarmTableViewController.swift in Sources */,
 				04FFD573248158B400B951A4 /* RepeatViewController.swift in Sources */,
+				04FFD57F2487CF0000B951A4 /* SoundTableViewCell.swift in Sources */,
+				04FFD57D2487CAE700B951A4 /* SoundViewController.swift in Sources */,
 				04FFD55B247FA84200B951A4 /* Clock.swift in Sources */,
 				04FFD5792482421700B951A4 /* LabelViewController.swift in Sources */,
 				04FFD577248160C100B951A4 /* AddAlarmClockTableViewCell.swift in Sources */,

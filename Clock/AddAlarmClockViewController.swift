@@ -73,7 +73,7 @@ class AddAlarmClockViewController: UIViewController, UITableViewDelegate, UITabl
                 repeated.append(i+1)
             }
         }
-        let clock = Clock(time: timePicker.date, repeated: repeated, label: label, isActive: true)
+        let clock = Clock(time: timePicker.date, repeated: repeated, label: label, isActive: true, sound: "Radar")
         self.delegate?.add(alarm: clock)
         navigationController?.popViewController(animated: true)
     }
@@ -148,6 +148,17 @@ class AddAlarmClockViewController: UIViewController, UITableViewDelegate, UITabl
                 cell.optionLabel.text = label
             }
             navigationController?.pushViewController(labelVC, animated: true)
+        } else if indexPath.row == 2 {
+            let soundVC = SoundViewController()
+            soundVC.soundName = cell.optionLabel.text!
+            soundVC.completion = { label in
+                if label.isEmpty {
+                    cell.optionLabel.text = "Radar"
+                } else {
+                    cell.optionLabel.text = label
+                }
+            }
+            navigationController?.pushViewController(soundVC, animated: true)
         }
         cell.isSelected = false
     }
