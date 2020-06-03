@@ -18,7 +18,7 @@ class SoundViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var soundName = ""
     
-    let soundList = ["Radar", "radar2", "radar3", "radar4", "radar5", "radar6", "radar7", "radar8", "radar9", "radar10",]
+    let soundList = ["despacito", "circuit", "romatic", "night", "crystal", "newMessage", "message", "ringingTone", "oldPhone", "trap",]
     
     typealias completionHandler = (String) -> Void
     var completion: completionHandler?

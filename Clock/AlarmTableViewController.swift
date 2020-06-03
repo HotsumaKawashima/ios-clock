@@ -49,7 +49,7 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
     @objc func alarmSwitchChange(_ sender: UISwitch) {
         if sender.isOn {
             alarmClocks[sender.tag].isActive = true
-            setupNotification(title: alarmClocks[sender.tag].label, identifier: "\(sender.tag)", date: alarmClocks[sender.tag].time, repeated: alarmClocks[sender.tag].repeated)
+            setupNotification(title: alarmClocks[sender.tag].label, identifier: "\(sender.tag)", date: alarmClocks[sender.tag].time, repeated: alarmClocks[sender.tag].repeated, sound: alarmClocks[sender.tag].sound)
             print("on")
             center.getPendingNotificationRequests { (requests) in
                 for request in requests {
@@ -77,28 +77,27 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
         tableView.reloadData()
     }
     
-    func setupNotification(title: String, identifier: String, date: Date, repeated: [Int]) {
+    func setupNotification(title: String, identifier: String, date: Date, repeated: [Int], sound: String) {
+        
         center.requestAuthorization(options: options) { (granted, error) in
             if !granted {
-                print("Something went wrong")
+                print("User has declined notification")
             }
         }
         
         let content = UNMutableNotificationContent()
         content.title = title
-        content.sound = UNNotificationSound.default
+        var notificationSound = sound
+        notificationSound.append(".mp3")
+        content.sound = UNNotificationSound.init(named: UNNotificationSoundName(notificationSound))
         
-        let date = date
-        
-        let components = Calendar.current.dateComponents([.weekday, .hour, .minute, .second], from: date)
+        let components = Calendar.current.dateComponents([.weekday, .hour, .minute], from: date)
         let hour = components.hour
         let minute = components.minute
-        let second = components.second
         
         var triggerDate = DateComponents()
         triggerDate.hour = hour
         triggerDate.minute = minute
-        triggerDate.second = second
         
         if repeated.isEmpty {
             let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
@@ -106,7 +105,7 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
             let request = UNNotificationRequest(identifier: identity, content: content, trigger: trigger)
             center.add(request) { (error) in
                 if error != nil {
-                    print("Something went wrong")
+                    print("something went wrong")
                 }
             }
         } else {
@@ -149,7 +148,7 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
         if alarmSwitch.isOn {
             cell.timeLabel.textColor = .white
             cell.detailLabel.textColor = .white
-            setupNotification(title: cell.detailLabel.text!, identifier: "\(indexPath.row)", date: alarmClocks[indexPath.row].time, repeated: alarmClocks[indexPath.row].repeated)
+            setupNotification(title: cell.detailLabel.text!, identifier: "\(indexPath.row)", date: alarmClocks[indexPath.row].time, repeated: alarmClocks[indexPath.row].repeated, sound: alarmClocks[indexPath.row].sound)
         } else {
             cell.timeLabel.textColor = .gray
             cell.detailLabel.textColor = .gray

@@ -29,7 +29,7 @@ class AddAlarmClockViewController: UIViewController, UITableViewDelegate, UITabl
     }()
     
     let options = ["Repeat", "Label", "Sound"]
-    let choices = ["Never", "Label", "Radar"]
+    let choices = ["Never", "Label", "despacito"]
     var weekdays = [Int](repeating: -1, count: 7)
     
     weak var delegate: AddAlarmClockViewControllerDelegate?
@@ -65,15 +65,17 @@ class AddAlarmClockViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @objc func saveAlarm(_ sender: UIBarButtonItem) {
-        let cell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! AddAlarmClockTableViewCell
-        let label = cell.optionLabel.text!
+        let labelCell = tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! AddAlarmClockTableViewCell
+        let label = labelCell.optionLabel.text!
         var repeated = [Int]()
+        let soundCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! AddAlarmClockTableViewCell
+        let sound = soundCell.optionLabel.text!
         for i in 0..<7 {
             if weekdays[i] == 0 {
                 repeated.append(i+1)
             }
         }
-        let clock = Clock(time: timePicker.date, repeated: repeated, label: label, isActive: true, sound: "Radar")
+        let clock = Clock(time: timePicker.date, repeated: repeated, label: label, isActive: true, sound: sound)
         self.delegate?.add(alarm: clock)
         navigationController?.popViewController(animated: true)
     }
@@ -153,7 +155,7 @@ class AddAlarmClockViewController: UIViewController, UITableViewDelegate, UITabl
             soundVC.soundName = cell.optionLabel.text!
             soundVC.completion = { label in
                 if label.isEmpty {
-                    cell.optionLabel.text = "Radar"
+                    cell.optionLabel.text = "despacito"
                 } else {
                     cell.optionLabel.text = label
                 }
