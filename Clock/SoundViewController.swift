@@ -65,9 +65,9 @@ class SoundViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerview = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        footerview.backgroundColor = .black
-        return footerview
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        footerView.backgroundColor = .black
+        return footerView
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

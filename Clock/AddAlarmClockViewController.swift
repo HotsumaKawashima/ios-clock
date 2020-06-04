@@ -29,7 +29,7 @@ class AddAlarmClockViewController: UIViewController, UITableViewDelegate, UITabl
     }()
     
     let options = ["Repeat", "Label", "Sound"]
-    let choices = ["Never", "Label", "despacito"]
+    let choices = ["Never", "Alarm", "despacito"]
     var weekdays = [Int](repeating: -1, count: 7)
     
     weak var delegate: AddAlarmClockViewControllerDelegate?

@@ -28,6 +28,8 @@
 		04FFD58F248841CB00B951A4 /* newMessage.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04FFD58E248841CB00B951A4 /* newMessage.mp3 */; };
 		04FFD591248841D100B951A4 /* ringingTone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04FFD590248841D100B951A4 /* ringingTone.mp3 */; };
 		04FFD593248841D800B951A4 /* oldPhone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04FFD592248841D800B951A4 /* oldPhone.mp3 */; };
+		04FFD5962488EB3700B951A4 /* EditAlarmClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD5952488EB3700B951A4 /* EditAlarmClockViewController.swift */; };
+		04FFD5982489051000B951A4 /* DeleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD5972489051000B951A4 /* DeleteTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		04FFD58E248841CB00B951A4 /* newMessage.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = newMessage.mp3; path = ../../../../Downloads/newMessage.mp3; sourceTree = "<group>"; };
 		04FFD590248841D100B951A4 /* ringingTone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ringingTone.mp3; path = ../../../../Downloads/ringingTone.mp3; sourceTree = "<group>"; };
 		04FFD592248841D800B951A4 /* oldPhone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = oldPhone.mp3; path = ../../../../Downloads/oldPhone.mp3; sourceTree = "<group>"; };
+		04FFD5952488EB3700B951A4 /* EditAlarmClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmClockViewController.swift; sourceTree = "<group>"; };
+		04FFD5972489051000B951A4 /* DeleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 		04FFD545247FA80400B951A4 /* Clock */ = {
 			isa = PBXGroup;
 			children = (
+				04FFD5942488EADE00B951A4 /* TableViewCells */,
 				04FFD58224883FB000B951A4 /* AlarmSound */,
 				04FFD546247FA80400B951A4 /* AppDelegate.swift */,
 				04FFD548247FA80400B951A4 /* SceneDelegate.swift */,
@@ -96,12 +101,10 @@
 				04FFD55A247FA84200B951A4 /* Clock.swift */,
 				04FFD566247FC64D00B951A4 /* AlarmTableViewController.swift */,
 				04FFD57424815CD100B951A4 /* AddAlarmClockViewController.swift */,
-				04FFD56A247FFA7800B951A4 /* ClockTableViewCell.swift */,
 				04FFD572248158B400B951A4 /* RepeatViewController.swift */,
-				04FFD576248160C100B951A4 /* AddAlarmClockTableViewCell.swift */,
 				04FFD5782482421700B951A4 /* LabelViewController.swift */,
 				04FFD57C2487CAE700B951A4 /* SoundViewController.swift */,
-				04FFD57E2487CF0000B951A4 /* SoundTableViewCell.swift */,
+				04FFD5952488EB3700B951A4 /* EditAlarmClockViewController.swift */,
 			);
 			path = Clock;
 			sourceTree = "<group>";
@@ -120,6 +123,17 @@
 				04FFD58324883FC100B951A4 /* trap.mp3 */,
 			);
 			path = AlarmSound;
+			sourceTree = "<group>";
+		};
+		04FFD5942488EADE00B951A4 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				04FFD56A247FFA7800B951A4 /* ClockTableViewCell.swift */,
+				04FFD57E2487CF0000B951A4 /* SoundTableViewCell.swift */,
+				04FFD576248160C100B951A4 /* AddAlarmClockTableViewCell.swift */,
+				04FFD5972489051000B951A4 /* DeleteTableViewCell.swift */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,8 +219,10 @@
 				04FFD567247FC64D00B951A4 /* AlarmTableViewController.swift in Sources */,
 				04FFD573248158B400B951A4 /* RepeatViewController.swift in Sources */,
 				04FFD57F2487CF0000B951A4 /* SoundTableViewCell.swift in Sources */,
+				04FFD5982489051000B951A4 /* DeleteTableViewCell.swift in Sources */,
 				04FFD57D2487CAE700B951A4 /* SoundViewController.swift in Sources */,
 				04FFD55B247FA84200B951A4 /* Clock.swift in Sources */,
+				04FFD5962488EB3700B951A4 /* EditAlarmClockViewController.swift in Sources */,
 				04FFD5792482421700B951A4 /* LabelViewController.swift in Sources */,
 				04FFD577248160C100B951A4 /* AddAlarmClockTableViewCell.swift in Sources */,
 				04FFD549247FA80400B951A4 /* SceneDelegate.swift in Sources */,

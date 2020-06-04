@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class AlarmTableViewController: UITableViewController, AddAlarmClockViewControllerDelegate {
+class AlarmTableViewController: UITableViewController, AddAlarmClockViewControllerDelegate, EditAlarmClockViewControllerDelegate {
     
     var alarmClocks: [Clock] = []
     
@@ -19,6 +19,8 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .black
+        tableView.allowsSelection = false
+        tableView.allowsSelectionDuringEditing = true
         tableView.rowHeight = 100
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Alarm"
@@ -32,11 +34,35 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
         tableView.register(ClockTableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
         
         // clean notification after reopen
+        // remove this when data is saved
         center.removeAllPendingNotificationRequests()
     }
     
     func add(alarm: Clock) {
         alarmClocks.append(alarm)
+        tableView.reloadData()
+    }
+    
+    func edit(alarm: Clock, indexPath: IndexPath) {
+        
+        alarmClocks[indexPath.row] = alarm
+        tableView.reloadData()
+    }
+    
+    func delete(indexPath: IndexPath) {
+        print(indexPath)
+        if alarmClocks[indexPath.row].repeated.isEmpty {
+            let identifier = "\(indexPath.row)"
+            center.removePendingNotificationRequests(withIdentifiers: [identifier])
+        } else {
+            for i in 0..<alarmClocks[indexPath.row].repeated.count {
+                var identifier = "\(indexPath.row)"
+                identifier.append(contentsOf: "\(alarmClocks[indexPath.row].repeated[i])")
+                center.removePendingNotificationRequests(withIdentifiers: [identifier])
+            }
+        }
+        alarmClocks.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
         tableView.reloadData()
     }
     
@@ -171,6 +197,29 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
             alarmClocks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let EditVC = EditAlarmClockViewController()
+        EditVC.clock = alarmClocks[indexPath.row]
+        EditVC.alarmIndexPath = indexPath
+//        EditVC.completion = { clock in
+//            self.alarmClocks[indexPath.row] = clock
+//            tableView.reloadData()
+//        }
+        if self.alarmClocks[indexPath.row].repeated.isEmpty {
+            let identifier = "\(indexPath.row)"
+            self.center.removePendingNotificationRequests(withIdentifiers: [identifier])
+        } else {
+            for i in 0..<self.alarmClocks[indexPath.row].repeated.count {
+                var identifier = "\(indexPath.row)"
+                identifier.append(contentsOf: "\(self.alarmClocks[indexPath.row].repeated[i])")
+                self.center.removePendingNotificationRequests(withIdentifiers: [identifier])
+            }
+        }
+        setEditing(false, animated: false)
+        EditVC.delegate = self
+        navigationController?.pushViewController(EditVC, animated: true)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
