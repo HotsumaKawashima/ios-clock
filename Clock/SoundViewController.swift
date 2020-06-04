@@ -145,12 +145,14 @@ class SoundViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! SoundTableViewCell
-        soundName = cell.soundLabel.text!
-        cell.selectionStyle = .none
-        cell.imageView?.isHidden = false
-        playSound(indexPath: indexPath)
-        tableView.reloadData()
+        if indexPath.section == 1 {
+            let cell = tableView.cellForRow(at: indexPath) as! SoundTableViewCell
+            soundName = cell.soundLabel.text!
+            cell.selectionStyle = .none
+            cell.imageView?.isHidden = false
+            playSound(indexPath: indexPath)
+            tableView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

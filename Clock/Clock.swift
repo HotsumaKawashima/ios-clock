@@ -15,4 +15,5 @@ struct Clock {
     var label: String
     var isActive: Bool
     var sound: String
+    var repeats: Bool
 }

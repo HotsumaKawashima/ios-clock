@@ -51,7 +51,7 @@ class RepeatViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         cell.textLabel?.text = days[indexPath.row]
         cell.textLabel?.textColor = .white
-        cell.backgroundColor = .black
+        cell.backgroundColor = .darkGray
         if weekdays[indexPath.row] == 0 {
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
             cell.selectionStyle = .none

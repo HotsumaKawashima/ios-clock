@@ -75,7 +75,7 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
     @objc func alarmSwitchChange(_ sender: UISwitch) {
         if sender.isOn {
             alarmClocks[sender.tag].isActive = true
-            setupNotification(title: alarmClocks[sender.tag].label, identifier: "\(sender.tag)", date: alarmClocks[sender.tag].time, repeated: alarmClocks[sender.tag].repeated, sound: alarmClocks[sender.tag].sound)
+            setupNotification(title: alarmClocks[sender.tag].label, identifier: "\(sender.tag)", date: alarmClocks[sender.tag].time, repeated: alarmClocks[sender.tag].repeated, sound: alarmClocks[sender.tag].sound, repeats: alarmClocks[sender.tag].repeats)
             print("on")
             center.getPendingNotificationRequests { (requests) in
                 for request in requests {
@@ -103,7 +103,7 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
         tableView.reloadData()
     }
     
-    func setupNotification(title: String, identifier: String, date: Date, repeated: [Int], sound: String) {
+    func setupNotification(title: String, identifier: String, date: Date, repeated: [Int], sound: String, repeats: Bool) {
         
         center.requestAuthorization(options: options) { (granted, error) in
             if !granted {
@@ -126,7 +126,7 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
         triggerDate.minute = minute
         
         if repeated.isEmpty {
-            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: true)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: repeats)
             let identity = identifier
             let request = UNNotificationRequest(identifier: identity, content: content, trigger: trigger)
             center.add(request) { (error) in
@@ -174,7 +174,7 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
         if alarmSwitch.isOn {
             cell.timeLabel.textColor = .white
             cell.detailLabel.textColor = .white
-            setupNotification(title: cell.detailLabel.text!, identifier: "\(indexPath.row)", date: alarmClocks[indexPath.row].time, repeated: alarmClocks[indexPath.row].repeated, sound: alarmClocks[indexPath.row].sound)
+            setupNotification(title: cell.detailLabel.text!, identifier: "\(indexPath.row)", date: alarmClocks[indexPath.row].time, repeated: alarmClocks[indexPath.row].repeated, sound: alarmClocks[indexPath.row].sound, repeats: alarmClocks[indexPath.row].repeats)
         } else {
             cell.timeLabel.textColor = .gray
             cell.detailLabel.textColor = .gray

@@ -70,12 +70,18 @@ class AddAlarmClockViewController: UIViewController, UITableViewDelegate, UITabl
         var repeated = [Int]()
         let soundCell = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! AddAlarmClockTableViewCell
         let sound = soundCell.optionLabel.text!
+        var repeats: Bool
         for i in 0..<7 {
             if weekdays[i] == 0 {
                 repeated.append(i+1)
             }
         }
-        let clock = Clock(time: timePicker.date, repeated: repeated, label: label, isActive: true, sound: sound)
+        if !weekdays.contains(0) {
+            repeats = false
+        } else {
+            repeats = true
+        }
+        let clock = Clock(time: timePicker.date, repeated: repeated, label: label, isActive: true, sound: sound, repeats: repeats)
         self.delegate?.add(alarm: clock)
         navigationController?.popViewController(animated: true)
     }
