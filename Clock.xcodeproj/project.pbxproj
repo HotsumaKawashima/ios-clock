@@ -30,6 +30,8 @@
 		04FFD593248841D800B951A4 /* oldPhone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04FFD592248841D800B951A4 /* oldPhone.mp3 */; };
 		04FFD5962488EB3700B951A4 /* EditAlarmClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD5952488EB3700B951A4 /* EditAlarmClockViewController.swift */; };
 		04FFD5982489051000B951A4 /* DeleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FFD5972489051000B951A4 /* DeleteTableViewCell.swift */; };
+		04FFD59A24891B1900B951A4 /* message.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04FFD59924891B1900B951A4 /* message.mp3 */; };
+		04FFD59C24891BB900B951A4 /* trap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 04FFD59B24891BB900B951A4 /* trap.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +50,6 @@
 		04FFD5782482421700B951A4 /* LabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
 		04FFD57C2487CAE700B951A4 /* SoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewController.swift; sourceTree = "<group>"; };
 		04FFD57E2487CF0000B951A4 /* SoundTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundTableViewCell.swift; sourceTree = "<group>"; };
-		04FFD58324883FC100B951A4 /* trap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = trap.mp3; sourceTree = "<group>"; };
 		04FFD584248841AE00B951A4 /* circuit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = circuit.mp3; path = ../../../../Downloads/circuit.mp3; sourceTree = "<group>"; };
 		04FFD586248841B300B951A4 /* romatic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = romatic.mp3; path = ../../../../Downloads/romatic.mp3; sourceTree = "<group>"; };
 		04FFD588248841B900B951A4 /* despacito.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = despacito.mp3; path = ../../../../Downloads/despacito.mp3; sourceTree = "<group>"; };
@@ -59,6 +60,8 @@
 		04FFD592248841D800B951A4 /* oldPhone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = oldPhone.mp3; path = ../../../../Downloads/oldPhone.mp3; sourceTree = "<group>"; };
 		04FFD5952488EB3700B951A4 /* EditAlarmClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAlarmClockViewController.swift; sourceTree = "<group>"; };
 		04FFD5972489051000B951A4 /* DeleteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTableViewCell.swift; sourceTree = "<group>"; };
+		04FFD59924891B1900B951A4 /* message.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = message.mp3; path = ../../../../Downloads/message.mp3; sourceTree = "<group>"; };
+		04FFD59B24891BB900B951A4 /* trap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = trap.mp3; path = ../../../../Downloads/trap.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +123,8 @@
 				04FFD588248841B900B951A4 /* despacito.mp3 */,
 				04FFD586248841B300B951A4 /* romatic.mp3 */,
 				04FFD584248841AE00B951A4 /* circuit.mp3 */,
-				04FFD58324883FC100B951A4 /* trap.mp3 */,
+				04FFD59924891B1900B951A4 /* message.mp3 */,
+				04FFD59B24891BB900B951A4 /* trap.mp3 */,
 			);
 			path = AlarmSound;
 			sourceTree = "<group>";
@@ -195,9 +199,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				04FFD585248841AE00B951A4 /* circuit.mp3 in Resources */,
+				04FFD59A24891B1900B951A4 /* message.mp3 in Resources */,
 				04FFD553247FA80A00B951A4 /* LaunchScreen.storyboard in Resources */,
 				04FFD587248841B300B951A4 /* romatic.mp3 in Resources */,
 				04FFD591248841D100B951A4 /* ringingTone.mp3 in Resources */,
+				04FFD59C24891BB900B951A4 /* trap.mp3 in Resources */,
 				04FFD593248841D800B951A4 /* oldPhone.mp3 in Resources */,
 				04FFD58D248841C500B951A4 /* crystal.mp3 in Resources */,
 				04FFD58B248841BE00B951A4 /* night.mp3 in Resources */,

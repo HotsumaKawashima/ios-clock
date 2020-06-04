@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class SoundViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,6 +18,8 @@ class SoundViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }()
     
     var soundName = ""
+    
+    var player: AVAudioPlayer?
     
     let soundList = ["despacito", "circuit", "romatic", "night", "crystal", "newMessage", "message", "ringingTone", "oldPhone", "trap",]
     
@@ -51,6 +54,28 @@ class SoundViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let label = soundName
         completionBlock?(label)
         navigationController?.popViewController(animated: true)
+    }
+    
+    func playSound(indexPath: IndexPath) {
+        guard let url = Bundle.main.url(forResource: "\(soundList[indexPath.row])", withExtension: "mp3") else { return }
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+
+            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+
+            /* iOS 10 and earlier require the following line:
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+
+            guard let player = player else { return }
+
+            player.play()
+
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -124,6 +149,7 @@ class SoundViewController: UIViewController, UITableViewDelegate, UITableViewDat
         soundName = cell.soundLabel.text!
         cell.selectionStyle = .none
         cell.imageView?.isHidden = false
+        playSound(indexPath: indexPath)
         tableView.reloadData()
     }
     
