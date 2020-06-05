@@ -32,6 +32,7 @@ class LabelViewController: UIViewController {
         let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem = backButton
         view.addSubview(labelTextField)
+        labelTextField.becomeFirstResponder()
         
         NSLayoutConstraint.activate([
             labelTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 300),
