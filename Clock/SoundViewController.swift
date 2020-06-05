@@ -21,7 +21,7 @@ class SoundViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var player: AVAudioPlayer?
     
-    let soundList = ["despacito", "circuit", "romatic", "night", "crystal", "newMessage", "message", "ringingTone", "oldPhone", "trap",]
+    let soundList = ["Despacito", "Circuit", "Romatic", "Night", "Crystal", "NewMessage", "Message", "RingingTone", "OldPhone", "Trap",]
     
     typealias completionHandler = (String) -> Void
     var completion: completionHandler?
@@ -63,11 +63,7 @@ class SoundViewController: UIViewController, UITableViewDelegate, UITableViewDat
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
 
-            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
-
-            /* iOS 10 and earlier require the following line:
-            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
 
             guard let player = player else { return }
 
@@ -125,6 +121,7 @@ class SoundViewController: UIViewController, UITableViewDelegate, UITableViewDat
             let disclosureImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
             disclosureImageView.image = image
             cell.accessoryView = disclosureImageView
+            cell.selectionStyle = .none
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "soundViewCell", for: indexPath) as! SoundTableViewCell
@@ -156,7 +153,9 @@ class SoundViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! SoundTableViewCell
-        cell.imageView?.isHidden = true
+        if indexPath.section == 1{
+            let cell = tableView.cellForRow(at: indexPath) as! SoundTableViewCell
+            cell.imageView?.isHidden = true
+        }
     }
 }

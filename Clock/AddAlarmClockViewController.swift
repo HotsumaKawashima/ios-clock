@@ -29,7 +29,7 @@ class AddAlarmClockViewController: UIViewController, UITableViewDelegate, UITabl
     }()
     
     let options = ["Repeat", "Label", "Sound"]
-    let choices = ["Never", "Alarm", "despacito"]
+    let choices = ["Never", "Alarm", "Despacito"]
     var weekdays = [Int](repeating: -1, count: 7)
     
     weak var delegate: AddAlarmClockViewControllerDelegate?
@@ -161,7 +161,7 @@ class AddAlarmClockViewController: UIViewController, UITableViewDelegate, UITabl
             soundVC.soundName = cell.optionLabel.text!
             soundVC.completion = { label in
                 if label.isEmpty {
-                    cell.optionLabel.text = "despacito"
+                    cell.optionLabel.text = "Despacito"
                 } else {
                     cell.optionLabel.text = label
                 }

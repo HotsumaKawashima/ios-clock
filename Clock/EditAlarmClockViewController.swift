@@ -15,10 +15,6 @@ protocol EditAlarmClockViewControllerDelegate: class {
 
 class EditAlarmClockViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var clock: Clock!
-    
-    var alarmIndexPath: IndexPath!
-    
     let timePicker: UIDatePicker = {
         let tp = UIDatePicker()
         tp.translatesAutoresizingMaskIntoConstraints = false
@@ -38,6 +34,8 @@ class EditAlarmClockViewController: UIViewController, UITableViewDelegate, UITab
     var options = ["Repeat", "Label", "Sound"]
     var choices = ["Never", "Alarm", "despacito"]
     var weekdays = [Int](repeating: -1, count: 7)
+    var clock: Clock!
+    var alarmIndexPath: IndexPath!
     
     override func viewDidLoad() {
         super.viewDidLoad()

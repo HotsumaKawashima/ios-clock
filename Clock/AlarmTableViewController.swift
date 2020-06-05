@@ -44,13 +44,11 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
     }
     
     func edit(alarm: Clock, indexPath: IndexPath) {
-        
         alarmClocks[indexPath.row] = alarm
         tableView.reloadData()
     }
     
     func delete(indexPath: IndexPath) {
-        print(indexPath)
         if alarmClocks[indexPath.row].repeated.isEmpty {
             let identifier = "\(indexPath.row)"
             center.removePendingNotificationRequests(withIdentifiers: [identifier])
@@ -62,7 +60,6 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
             }
         }
         alarmClocks.remove(at: indexPath.row)
-        tableView.deleteRows(at: [indexPath], with: .fade)
         tableView.reloadData()
     }
     
@@ -76,6 +73,7 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
         if sender.isOn {
             alarmClocks[sender.tag].isActive = true
             setupNotification(title: alarmClocks[sender.tag].label, identifier: "\(sender.tag)", date: alarmClocks[sender.tag].time, repeated: alarmClocks[sender.tag].repeated, sound: alarmClocks[sender.tag].sound, repeats: alarmClocks[sender.tag].repeats)
+            // check current acitivate notification
             print("on")
             center.getPendingNotificationRequests { (requests) in
                 for request in requests {
@@ -93,6 +91,7 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
                     center.removePendingNotificationRequests(withIdentifiers: [identifier])
                 }
             }
+            // check current acitivate notification
             print("off")
             center.getPendingNotificationRequests { (requests) in
                 for request in requests {
@@ -104,13 +103,11 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
     }
     
     func setupNotification(title: String, identifier: String, date: Date, repeated: [Int], sound: String, repeats: Bool) {
-        
         center.requestAuthorization(options: options) { (granted, error) in
             if !granted {
                 print("User has declined notification")
             }
         }
-        
         let content = UNMutableNotificationContent()
         content.title = title
         var notificationSound = sound
@@ -203,10 +200,7 @@ class AlarmTableViewController: UITableViewController, AddAlarmClockViewControll
         let EditVC = EditAlarmClockViewController()
         EditVC.clock = alarmClocks[indexPath.row]
         EditVC.alarmIndexPath = indexPath
-//        EditVC.completion = { clock in
-//            self.alarmClocks[indexPath.row] = clock
-//            tableView.reloadData()
-//        }
+
         if self.alarmClocks[indexPath.row].repeated.isEmpty {
             let identifier = "\(indexPath.row)"
             self.center.removePendingNotificationRequests(withIdentifiers: [identifier])
