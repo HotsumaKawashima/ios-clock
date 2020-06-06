@@ -31,7 +31,7 @@ class StopWatchViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var timeDisplayView: TimeDisplayView = {
         let t = TimeDisplayView()
-        t.frame = CGRect(x: 0, y: 40, width: UIScreen.main.bounds.size.width, height: 200)
+        t.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 250)
         return t
     }()
     
