@@ -19,7 +19,15 @@ class StopWatchViewController: UIViewController, UITableViewDelegate, UITableVie
     var startStopWatch: Bool = true
     var addLap: Bool = false
 
-    @IBOutlet weak var stopwatchLabel: UILabel!
+    var stopwatchLabel: UILabel = {
+        let l = UILabel()
+        l.text = "00:00:00"
+        l.frame = CGRect(x: 0, y: 40, width: UIScreen.main.bounds.size.width, height: 200)
+        l.textAlignment = NSTextAlignment.center
+        l.textColor = UIColor.white
+        l.font = l.font.withSize(60)
+        return l
+    }()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -78,11 +86,10 @@ class StopWatchViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //stopwatchLabel.text = "00.00.00"
-
         self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CollectionView")
 
         let page1 = UIViewController()
+        page1.view.addSubview(stopwatchLabel)
         page1.view.backgroundColor = UIColor.black
         self.pages.append(page1)
 
