@@ -29,6 +29,12 @@ class StopWatchViewController: UIViewController, UITableViewDelegate, UITableVie
         return l
     }()
     
+    var timeDisplayView: TimeDisplayView = {
+        let t = TimeDisplayView()
+        t.frame = CGRect(x: 0, y: 40, width: UIScreen.main.bounds.size.width, height: 200)
+        return t
+    }()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var lapsTableView: UITableView!
@@ -94,7 +100,8 @@ class StopWatchViewController: UIViewController, UITableViewDelegate, UITableVie
         self.pages.append(page1)
 
         let page2 = UIViewController()
-        page2.view.backgroundColor = UIColor.blue
+        page2.view.backgroundColor = UIColor.black
+        page2.view.addSubview(timeDisplayView)
         self.pages.append(page2)
     }
     
@@ -117,6 +124,8 @@ class StopWatchViewController: UIViewController, UITableViewDelegate, UITableVie
         
         stopwatchString = "\(minutesString):\(secondsString).\(fractionsString)"
         stopwatchLabel.text = stopwatchString
+    
+        timeDisplayView.updateDisplay(datecomponents: DateComponents(hour: 0, minute: minutes, second: seconds))
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

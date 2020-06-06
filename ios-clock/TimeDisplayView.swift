@@ -24,14 +24,8 @@ class TimeDisplayView: UIView {
         self.setNeedsDisplay()
     }
     
-    @discardableResult
-    func updateDisplay(timezone: Timezone) -> DateComponents {
-        guard let tz = TimeZone(identifier: timezone.identifier) else { return DateComponents() }
-        var calendar = Calendar(identifier: Calendar.Identifier.gregorian)
-        calendar.timeZone = tz
-        let dateComponents = calendar.dateComponents([.hour, .minute, .second], from: Date())
-        self.components = dateComponents
-        return dateComponents
+    func updateDisplay(datecomponents: DateComponents) {
+        self.components = datecomponents
     }
     
     func radialMark(center: CGPoint, outerRadius: CGFloat, innerRadius: CGFloat, sixtieths: CGFloat, color: UIColor, lineWidth: CGFloat) {
