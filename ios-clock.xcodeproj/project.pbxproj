@@ -21,6 +21,7 @@
 		F8610383247C6D5C00907724 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8610381247C6D5C00907724 /* LaunchScreen.storyboard */; };
 		F8B9D12A247F944E000AB1B3 /* WorldClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9D129247F944E000AB1B3 /* WorldClockViewController.swift */; };
 		F8B9D12E247F9AFF000AB1B3 /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9D12D247F9AFF000AB1B3 /* TimeZone.swift */; };
+		F8C53ADC248B7A6D004A9FC4 /* TimeDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C53ADB248B7A6D004A9FC4 /* TimeDisplayView.swift */; };
 		F8F7EAFC248197D50089E838 /* SelectTimezoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7EAFB248197D50089E838 /* SelectTimezoneViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		F8610384247C6D5C00907724 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8B9D129247F944E000AB1B3 /* WorldClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockViewController.swift; sourceTree = "<group>"; };
 		F8B9D12D247F9AFF000AB1B3 /* TimeZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZone.swift; sourceTree = "<group>"; };
+		F8C53ADB248B7A6D004A9FC4 /* TimeDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeDisplayView.swift; sourceTree = "<group>"; };
 		F8F7EAFB248197D50089E838 /* SelectTimezoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTimezoneViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 				F8F7EAFB248197D50089E838 /* SelectTimezoneViewController.swift */,
 				F8610376247C6D5A00907724 /* AppDelegate.swift */,
 				F8610378247C6D5A00907724 /* SceneDelegate.swift */,
+				F8C53ADB248B7A6D004A9FC4 /* TimeDisplayView.swift */,
 				F861037A247C6D5A00907724 /* TabBarController.swift */,
 				F861037C247C6D5A00907724 /* Main.storyboard */,
 				F861037F247C6D5C00907724 /* Assets.xcassets */,
@@ -177,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8B9D12E247F9AFF000AB1B3 /* TimeZone.swift in Sources */,
+				F8C53ADC248B7A6D004A9FC4 /* TimeDisplayView.swift in Sources */,
 				F861037B247C6D5A00907724 /* TabBarController.swift in Sources */,
 				F8610377247C6D5A00907724 /* AppDelegate.swift in Sources */,
 				F8F7EAFC248197D50089E838 /* SelectTimezoneViewController.swift in Sources */,
