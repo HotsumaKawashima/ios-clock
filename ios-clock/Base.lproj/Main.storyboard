@@ -223,14 +223,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5l-om-yMb">
-                                <rect key="frame" x="186" y="398" width="42" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="pause"/>
-                                <connections>
-                                    <action selector="pauseTimerButton:" destination="8J8-O9-UON" eventType="touchUpInside" id="9Mm-8o-NoG"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L67-8I-DBd">
                                 <rect key="frame" x="280" y="351" width="98" height="96"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -247,8 +239,35 @@
                                     <action selector="resetTimerButton:" destination="8J8-O9-UON" eventType="touchUpInside" id="QTF-am-W89"/>
                                 </connections>
                             </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="aPp-2z-sPP">
+                                <rect key="frame" x="0.0" y="597" width="414" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="IX6-r6-9aa"/>
+                                </constraints>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b5l-om-yMb">
+                                <rect key="frame" x="186" y="369" width="42" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="pause"/>
+                                <connections>
+                                    <action selector="pauseTimerButton:" destination="8J8-O9-UON" eventType="touchUpInside" id="9Mm-8o-NoG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnR-PA-FpG">
+                                <rect key="frame" x="190" y="407" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Set"/>
+                                <connections>
+                                    <segue destination="Eqw-dt-LRf" kind="show" id="Sjx-wa-ygf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="aPp-2z-sPP" firstAttribute="trailing" secondItem="Gga-e5-Dza" secondAttribute="trailing" id="8bI-xp-Xf5"/>
+                            <constraint firstItem="aPp-2z-sPP" firstAttribute="leading" secondItem="Gga-e5-Dza" secondAttribute="leading" id="LmQ-bR-nAk"/>
+                            <constraint firstItem="Gga-e5-Dza" firstAttribute="bottom" secondItem="aPp-2z-sPP" secondAttribute="bottom" id="Mi5-WF-QoC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Gga-e5-Dza"/>
                     </view>
                     <navigationItem key="navigationItem" title="Timer" id="dHy-v1-RYe"/>
@@ -261,7 +280,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eaw-yv-FPV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3092.753623188406" y="1520.7589285714284"/>
+            <point key="canvasLocation" x="3109" y="1509"/>
+        </scene>
+        <!--Select Timer View Controller-->
+        <scene sceneID="h97-4g-g3W">
+            <objects>
+                <viewController id="Eqw-dt-LRf" customClass="SelectTimerViewController" customModule="ios_clock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UsS-cY-JSL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clW-zJ-tte">
+                                <rect key="frame" x="0.0" y="340" width="414" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="Rqe-1J-t0a"/>
+                                </constraints>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="clW-zJ-tte" firstAttribute="centerY" secondItem="UsS-cY-JSL" secondAttribute="centerY" id="4eO-qS-xPz"/>
+                            <constraint firstItem="clW-zJ-tte" firstAttribute="leading" secondItem="F0x-kW-Moa" secondAttribute="leading" id="FBu-Nw-JqE"/>
+                            <constraint firstItem="clW-zJ-tte" firstAttribute="trailing" secondItem="F0x-kW-Moa" secondAttribute="trailing" id="Sg0-EV-tBd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="F0x-kW-Moa"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ueo-YJ-1fJ">
+                        <barButtonItem key="rightBarButtonItem" title="Set" id="RzK-gS-ocv">
+                            <connections>
+                                <action selector="setTimer" destination="Eqw-dt-LRf" id="gfj-m8-SUo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="SetButton" destination="RzK-gS-ocv" id="wXc-5O-Z91"/>
+                        <outlet property="timePicker" destination="clW-zJ-tte" id="zBS-Fu-PWc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4cT-PP-eQ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3903" y="1509"/>
         </scene>
         <!--Stopwatch-->
         <scene sceneID="c2N-tD-VKP">

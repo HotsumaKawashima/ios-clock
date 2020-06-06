@@ -12,6 +12,7 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     
     var seconds = 160
+    var count = 160
     var timer = Timer()
     var isTimerRunning = false
     var resumeTapped = false
@@ -24,8 +25,8 @@ class TimerViewController: UIViewController {
     
     @IBAction func resetTimerButton(_ sender: Any) {
         timer.invalidate()
-        seconds = 60
-        timerLabel.text = timeString(time: TimeInterval(seconds))
+        count = seconds
+        timerLabel.text = timeString(time: TimeInterval(count))
         isTimerRunning = false
     }
     
@@ -47,12 +48,20 @@ class TimerViewController: UIViewController {
     }
     
     @objc func updateTimer() {
-        if seconds < 1 {
+        if count < 1 {
              timer.invalidate()
         } else {
-             seconds -= 1
-             timerLabel.text = timeString(time: TimeInterval(seconds))
+             count -= 1
+             timerLabel.text = timeString(time: TimeInterval(count))
         }
+    }
+    
+    func setTime(second: Int) {
+        print(second)
+        seconds = second
+        count = second
+        timerLabel.text = timeString(time: TimeInterval(count))
+        super.viewDidLoad()
     }
     
     func runTimer() {
@@ -71,7 +80,7 @@ class TimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        timerLabel.text = timeString(time: TimeInterval(count))
         // Do any additional setup after loading the view.
     }
     
