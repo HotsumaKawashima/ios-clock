@@ -125,7 +125,7 @@ class StopWatchViewController: UIViewController, UITableViewDelegate, UITableVie
         stopwatchString = "\(minutesString):\(secondsString).\(fractionsString)"
         stopwatchLabel.text = stopwatchString
     
-        timeDisplayView.updateDisplay(datecomponents: DateComponents(hour: 0, minute: minutes, second: seconds))
+        timeDisplayView.updateDisplay(minutes: minutes, seconds: seconds)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
