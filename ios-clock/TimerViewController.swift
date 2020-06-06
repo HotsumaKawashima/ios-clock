@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class TimerViewController: UIViewController {
 
@@ -50,6 +51,8 @@ class TimerViewController: UIViewController {
     @objc func updateTimer() {
         if count < 1 {
              timer.invalidate()
+            let soundIdRing:SystemSoundID = 1108
+            AudioServicesPlaySystemSound(soundIdRing)
         } else {
              count -= 1
              timerLabel.text = timeString(time: TimeInterval(count))
