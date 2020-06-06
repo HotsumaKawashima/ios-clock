@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StopWatchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class StopWatchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
    
     var laps : [String] = []
     var timer  = Timer()
@@ -21,11 +21,15 @@ class StopWatchViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBOutlet weak var stopwatchLabel: UILabel!
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     @IBOutlet weak var lapsTableView: UITableView!
     
     @IBOutlet weak var startstopButton: UIButton!
     
     @IBOutlet weak var lapresetButton: UIButton!
+    
+    var pages = [UIViewController]()
     
     @IBAction func startStop(_ sender: Any) {
         if startStopWatch == true {
@@ -74,7 +78,17 @@ class StopWatchViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        stopwatchLabel.text = "00.00.00"
+        //stopwatchLabel.text = "00.00.00"
+
+        self.collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "CollectionView")
+
+        let page1 = UIViewController()
+        page1.view.backgroundColor = UIColor.black
+        self.pages.append(page1)
+
+        let page2 = UIViewController()
+        page2.view.backgroundColor = UIColor.blue
+        self.pages.append(page2)
     }
     
    @objc func updateStopwatch(){
@@ -110,7 +124,27 @@ class StopWatchViewController: UIViewController, UITableViewDelegate, UITableVie
         
         return cell
         
-       }
+    }
 
+        func numberOfSections(in collectionView: UICollectionView) -> Int {
+            return 1
+        }
+         
+        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            return 2
+        }
+         
+        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionView", for: indexPath)
+            cell.contentView.addSubview(pages[indexPath.row].view)
+            
+            return cell
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            let width = self.collectionView.frame.size.width
+            let height = self.collectionView.frame.size.height
+            return CGSize(width: width, height: height)
+        }
 
 }

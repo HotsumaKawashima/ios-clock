@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -331,35 +332,50 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c9c-mP-Rc9">
-                                <rect key="frame" x="0.0" y="88" width="414" height="275"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:05.88" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dp-eX-uoy">
-                                        <rect key="frame" x="38" y="33" width="338" height="175"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h5s-r5-hNL">
+                                <rect key="frame" x="0.0" y="88" width="414" height="250"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="EA4-Ib-Ifb"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="LoY-4v-mpg">
+                                    <size key="itemSize" width="390" height="230"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionView" id="DaY-mt-Mq1">
+                                        <rect key="frame" x="0.0" y="10" width="390" height="230"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="72"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="V5d-HP-w4x">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="230"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="390" height="230"/>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="lEq-je-o0X" appends="YES" id="ScT-JH-y0d"/>
+                                    <outlet property="dataSource" destination="5Uo-32-Gak" id="Oc5-9q-ahJ"/>
+                                    <outlet property="delegate" destination="5Uo-32-Gak" id="LZm-CS-FCY"/>
                                 </connections>
-                            </view>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="h5s-r5-hNL" firstAttribute="leading" secondItem="Grd-1x-sGh" secondAttribute="leading" id="DB2-JV-w2d"/>
+                            <constraint firstItem="h5s-r5-hNL" firstAttribute="top" secondItem="Grd-1x-sGh" secondAttribute="top" id="KZn-J9-c5P"/>
+                            <constraint firstItem="Grd-1x-sGh" firstAttribute="trailing" secondItem="h5s-r5-hNL" secondAttribute="trailing" id="YA0-9k-v09"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Grd-1x-sGh"/>
                     </view>
                     <navigationItem key="navigationItem" title="StopWatch" id="PpQ-NB-f4C"/>
                     <connections>
+                        <outlet property="collectionView" destination="h5s-r5-hNL" id="mK0-1b-JW0"/>
                         <outlet property="lapresetButton" destination="o5f-1g-H6a" id="bmB-Fb-trY"/>
                         <outlet property="lapsTableView" destination="2nn-IL-hJa" id="O7U-rU-aOQ"/>
                         <outlet property="startstopButton" destination="Mf6-Bx-4Vt" id="ORK-We-bhb"/>
-                        <outlet property="stopwatchLabel" destination="3dp-eX-uoy" id="apm-wn-Wgw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dfA-Gu-QkS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
