@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F62244FB24886BE8007C41D6 /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62244FA24886BE8007C41D6 /* StopWatchViewController.swift */; };
+		F62245092489667D007C41D6 /* StartButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F62245052489667D007C41D6 /* StartButton.png */; };
+		F622450A2489667D007C41D6 /* ResetButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F62245062489667D007C41D6 /* ResetButton.png */; };
+		F622450B2489667D007C41D6 /* LapButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F62245072489667D007C41D6 /* LapButton.png */; };
+		F622450C2489667D007C41D6 /* StopButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F62245082489667D007C41D6 /* StopButton.png */; };
+		F62245162489AC49007C41D6 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62245152489AC49007C41D6 /* TimerViewController.swift */; };
+		F85FCA09248BA6C100997748 /* SelectTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85FCA08248BA6C100997748 /* SelectTimerViewController.swift */; };
 		F8610377247C6D5A00907724 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8610376247C6D5A00907724 /* AppDelegate.swift */; };
 		F8610379247C6D5A00907724 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8610378247C6D5A00907724 /* SceneDelegate.swift */; };
 		F861037B247C6D5A00907724 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861037A247C6D5A00907724 /* TabBarController.swift */; };
@@ -15,10 +22,18 @@
 		F8610383247C6D5C00907724 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8610381247C6D5C00907724 /* LaunchScreen.storyboard */; };
 		F8B9D12A247F944E000AB1B3 /* WorldClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9D129247F944E000AB1B3 /* WorldClockViewController.swift */; };
 		F8B9D12E247F9AFF000AB1B3 /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B9D12D247F9AFF000AB1B3 /* TimeZone.swift */; };
+		F8C53ADC248B7A6D004A9FC4 /* AnalogStopWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C53ADB248B7A6D004A9FC4 /* AnalogStopWatch.swift */; };
 		F8F7EAFC248197D50089E838 /* SelectTimezoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F7EAFB248197D50089E838 /* SelectTimezoneViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F62244FA24886BE8007C41D6 /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
+		F62245052489667D007C41D6 /* StartButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartButton.png; sourceTree = "<group>"; };
+		F62245062489667D007C41D6 /* ResetButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResetButton.png; sourceTree = "<group>"; };
+		F62245072489667D007C41D6 /* LapButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LapButton.png; sourceTree = "<group>"; };
+		F62245082489667D007C41D6 /* StopButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StopButton.png; sourceTree = "<group>"; };
+		F62245152489AC49007C41D6 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		F85FCA08248BA6C100997748 /* SelectTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTimerViewController.swift; sourceTree = "<group>"; };
 		F8610373247C6D5A00907724 /* ios-clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8610376247C6D5A00907724 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8610378247C6D5A00907724 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,6 +44,7 @@
 		F8610384247C6D5C00907724 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8B9D129247F944E000AB1B3 /* WorldClockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldClockViewController.swift; sourceTree = "<group>"; };
 		F8B9D12D247F9AFF000AB1B3 /* TimeZone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZone.swift; sourceTree = "<group>"; };
+		F8C53ADB248B7A6D004A9FC4 /* AnalogStopWatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogStopWatch.swift; sourceTree = "<group>"; };
 		F8F7EAFB248197D50089E838 /* SelectTimezoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectTimezoneViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,6 +59,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F62244FC24886D6B007C41D6 /* buttonimages */ = {
+			isa = PBXGroup;
+			children = (
+				F62245072489667D007C41D6 /* LapButton.png */,
+				F62245062489667D007C41D6 /* ResetButton.png */,
+				F62245052489667D007C41D6 /* StartButton.png */,
+				F62245082489667D007C41D6 /* StopButton.png */,
+			);
+			path = buttonimages;
+			sourceTree = "<group>";
+		};
 		F861036A247C6D5A00907724 = {
 			isa = PBXGroup;
 			children = (
@@ -62,16 +89,21 @@
 		F8610375247C6D5A00907724 /* ios-clock */ = {
 			isa = PBXGroup;
 			children = (
+				F62244FC24886D6B007C41D6 /* buttonimages */,
 				F8F7EAFB248197D50089E838 /* SelectTimezoneViewController.swift */,
 				F8610376247C6D5A00907724 /* AppDelegate.swift */,
 				F8610378247C6D5A00907724 /* SceneDelegate.swift */,
+				F8C53ADB248B7A6D004A9FC4 /* AnalogStopWatch.swift */,
 				F861037A247C6D5A00907724 /* TabBarController.swift */,
 				F861037C247C6D5A00907724 /* Main.storyboard */,
 				F861037F247C6D5C00907724 /* Assets.xcassets */,
 				F8610381247C6D5C00907724 /* LaunchScreen.storyboard */,
 				F8610384247C6D5C00907724 /* Info.plist */,
 				F8B9D129247F944E000AB1B3 /* WorldClockViewController.swift */,
+				F62244FA24886BE8007C41D6 /* StopWatchViewController.swift */,
 				F8B9D12D247F9AFF000AB1B3 /* TimeZone.swift */,
+				F62245152489AC49007C41D6 /* TimerViewController.swift */,
+				F85FCA08248BA6C100997748 /* SelectTimerViewController.swift */,
 			);
 			path = "ios-clock";
 			sourceTree = "<group>";
@@ -133,9 +165,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F62245092489667D007C41D6 /* StartButton.png in Resources */,
 				F8610383247C6D5C00907724 /* LaunchScreen.storyboard in Resources */,
 				F8610380247C6D5C00907724 /* Assets.xcassets in Resources */,
+				F622450A2489667D007C41D6 /* ResetButton.png in Resources */,
 				F861037E247C6D5A00907724 /* Main.storyboard in Resources */,
+				F622450C2489667D007C41D6 /* StopButton.png in Resources */,
+				F622450B2489667D007C41D6 /* LapButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,10 +183,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8B9D12E247F9AFF000AB1B3 /* TimeZone.swift in Sources */,
+				F8C53ADC248B7A6D004A9FC4 /* AnalogStopWatch.swift in Sources */,
+				F85FCA09248BA6C100997748 /* SelectTimerViewController.swift in Sources */,
 				F861037B247C6D5A00907724 /* TabBarController.swift in Sources */,
 				F8610377247C6D5A00907724 /* AppDelegate.swift in Sources */,
 				F8F7EAFC248197D50089E838 /* SelectTimezoneViewController.swift in Sources */,
+				F62245162489AC49007C41D6 /* TimerViewController.swift in Sources */,
 				F8610379247C6D5A00907724 /* SceneDelegate.swift in Sources */,
+				F62244FB24886BE8007C41D6 /* StopWatchViewController.swift in Sources */,
 				F8B9D12A247F944E000AB1B3 /* WorldClockViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
