@@ -61,6 +61,19 @@ class WorldClockViewController: UITableViewController {
         format.timeZone = TimeZone(identifier: timezone.identifier)
         
         (cell.viewWithTag(2) as? UILabel)?.text = format.string(from: Date())
+        
+        let current = TimeZone(identifier: "America/Vancouver")?.secondsFromGMT()
+        let time = TimeZone(identifier: timezone.identifier)?.secondsFromGMT()
+        let difference = time! - current!
+        print(difference)
+        if(difference > 86400) {
+            (cell.viewWithTag(3) as? UILabel)?.text = "Tomorrow " + String(difference / 3600) + " hour"
+        } else if(difference < 86400) {
+            (cell.viewWithTag(3) as? UILabel)?.text = "Yesterday " + String(difference / 3600) + " hour"
+        } else {
+            (cell.viewWithTag(3) as? UILabel)?.text = String(difference / 3600) + " hour"
+        }
+        
         return cell
     }
     
