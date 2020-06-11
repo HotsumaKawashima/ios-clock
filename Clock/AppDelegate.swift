@@ -1,8 +1,9 @@
 //
 //  AppDelegate.swift
-//  ios-clock
+//  Clock
 //
-//  Created by user169339 on 5/25/20.
+//  Created by 桑染 on 2020-05-28.
+//  Copyright © 2020 Rick. All rights reserved.
 //
 
 import UIKit
