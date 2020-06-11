@@ -59,7 +59,7 @@ class AddAlarmClockViewController: UIViewController, UITableViewDelegate, UITabl
             
             tableView.topAnchor.constraint(equalTo: timePicker.bottomAnchor, constant: 20),
             tableView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300)
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
         
     }

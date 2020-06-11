@@ -13,6 +13,18 @@
 		F622450B2489667D007C41D6 /* LapButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F62245072489667D007C41D6 /* LapButton.png */; };
 		F622450C2489667D007C41D6 /* StopButton.png in Resources */ = {isa = PBXBuildFile; fileRef = F62245082489667D007C41D6 /* StopButton.png */; };
 		F62245162489AC49007C41D6 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62245152489AC49007C41D6 /* TimerViewController.swift */; };
+		F8502D9A2492FB9200D3BA5B /* AddAlarmClockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8502D962492FB9100D3BA5B /* AddAlarmClockTableViewCell.swift */; };
+		F8502D9B2492FB9200D3BA5B /* SoundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8502D972492FB9100D3BA5B /* SoundTableViewCell.swift */; };
+		F8502D9C2492FB9200D3BA5B /* DeleteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8502D982492FB9100D3BA5B /* DeleteTableViewCell.swift */; };
+		F8502D9D2492FB9200D3BA5B /* ClockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8502D992492FB9200D3BA5B /* ClockTableViewCell.swift */; };
+		F8502DA62492FBB600D3BA5B /* AddAlarmClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8502D9E2492FBB600D3BA5B /* AddAlarmClockViewController.swift */; };
+		F8502DA72492FBB600D3BA5B /* RepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8502D9F2492FBB600D3BA5B /* RepeatViewController.swift */; };
+		F8502DA82492FBB600D3BA5B /* EditAlarmClockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8502DA02492FBB600D3BA5B /* EditAlarmClockViewController.swift */; };
+		F8502DA92492FBB600D3BA5B /* SoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8502DA12492FBB600D3BA5B /* SoundViewController.swift */; };
+		F8502DAA2492FBB600D3BA5B /* AlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8502DA22492FBB600D3BA5B /* AlarmTableViewController.swift */; };
+		F8502DAB2492FBB600D3BA5B /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8502DA32492FBB600D3BA5B /* Clock.swift */; };
+		F8502DAC2492FBB600D3BA5B /* AlarmSound in Resources */ = {isa = PBXBuildFile; fileRef = F8502DA42492FBB600D3BA5B /* AlarmSound */; };
+		F8502DAD2492FBB600D3BA5B /* LabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8502DA52492FBB600D3BA5B /* LabelViewController.swift */; };
 		F85FCA09248BA6C100997748 /* SelectTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85FCA08248BA6C100997748 /* SelectTimerViewController.swift */; };
 		F8610377247C6D5A00907724 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8610376247C6D5A00907724 /* AppDelegate.swift */; };
 		F8610379247C6D5A00907724 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8610378247C6D5A00907724 /* SceneDelegate.swift */; };
@@ -33,6 +45,18 @@
 		F62245072489667D007C41D6 /* LapButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LapButton.png; sourceTree = "<group>"; };
 		F62245082489667D007C41D6 /* StopButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StopButton.png; sourceTree = "<group>"; };
 		F62245152489AC49007C41D6 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		F8502D962492FB9100D3BA5B /* AddAlarmClockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAlarmClockTableViewCell.swift; sourceTree = "<group>"; };
+		F8502D972492FB9100D3BA5B /* SoundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundTableViewCell.swift; sourceTree = "<group>"; };
+		F8502D982492FB9100D3BA5B /* DeleteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteTableViewCell.swift; sourceTree = "<group>"; };
+		F8502D992492FB9200D3BA5B /* ClockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClockTableViewCell.swift; sourceTree = "<group>"; };
+		F8502D9E2492FBB600D3BA5B /* AddAlarmClockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAlarmClockViewController.swift; sourceTree = "<group>"; };
+		F8502D9F2492FBB600D3BA5B /* RepeatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatViewController.swift; sourceTree = "<group>"; };
+		F8502DA02492FBB600D3BA5B /* EditAlarmClockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAlarmClockViewController.swift; sourceTree = "<group>"; };
+		F8502DA12492FBB600D3BA5B /* SoundViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundViewController.swift; sourceTree = "<group>"; };
+		F8502DA22492FBB600D3BA5B /* AlarmTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewController.swift; sourceTree = "<group>"; };
+		F8502DA32492FBB600D3BA5B /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
+		F8502DA42492FBB600D3BA5B /* AlarmSound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AlarmSound; sourceTree = "<group>"; };
+		F8502DA52492FBB600D3BA5B /* LabelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelViewController.swift; sourceTree = "<group>"; };
 		F85FCA08248BA6C100997748 /* SelectTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTimerViewController.swift; sourceTree = "<group>"; };
 		F8610373247C6D5A00907724 /* ios-clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8610376247C6D5A00907724 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +113,18 @@
 		F8610375247C6D5A00907724 /* ios-clock */ = {
 			isa = PBXGroup;
 			children = (
+				F8502D9E2492FBB600D3BA5B /* AddAlarmClockViewController.swift */,
+				F8502DA42492FBB600D3BA5B /* AlarmSound */,
+				F8502DA22492FBB600D3BA5B /* AlarmTableViewController.swift */,
+				F8502DA32492FBB600D3BA5B /* Clock.swift */,
+				F8502DA02492FBB600D3BA5B /* EditAlarmClockViewController.swift */,
+				F8502DA52492FBB600D3BA5B /* LabelViewController.swift */,
+				F8502D9F2492FBB600D3BA5B /* RepeatViewController.swift */,
+				F8502DA12492FBB600D3BA5B /* SoundViewController.swift */,
+				F8502D962492FB9100D3BA5B /* AddAlarmClockTableViewCell.swift */,
+				F8502D992492FB9200D3BA5B /* ClockTableViewCell.swift */,
+				F8502D982492FB9100D3BA5B /* DeleteTableViewCell.swift */,
+				F8502D972492FB9100D3BA5B /* SoundTableViewCell.swift */,
 				F62244FC24886D6B007C41D6 /* buttonimages */,
 				F8F7EAFB248197D50089E838 /* SelectTimezoneViewController.swift */,
 				F8610376247C6D5A00907724 /* AppDelegate.swift */,
@@ -165,6 +201,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8502DAC2492FBB600D3BA5B /* AlarmSound in Resources */,
 				F62245092489667D007C41D6 /* StartButton.png in Resources */,
 				F8610383247C6D5C00907724 /* LaunchScreen.storyboard in Resources */,
 				F8610380247C6D5C00907724 /* Assets.xcassets in Resources */,
@@ -182,16 +219,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8502D9D2492FB9200D3BA5B /* ClockTableViewCell.swift in Sources */,
 				F8B9D12E247F9AFF000AB1B3 /* TimeZone.swift in Sources */,
+				F8502DA62492FBB600D3BA5B /* AddAlarmClockViewController.swift in Sources */,
 				F8C53ADC248B7A6D004A9FC4 /* AnalogStopWatch.swift in Sources */,
 				F85FCA09248BA6C100997748 /* SelectTimerViewController.swift in Sources */,
+				F8502DA82492FBB600D3BA5B /* EditAlarmClockViewController.swift in Sources */,
+				F8502DA72492FBB600D3BA5B /* RepeatViewController.swift in Sources */,
+				F8502D9A2492FB9200D3BA5B /* AddAlarmClockTableViewCell.swift in Sources */,
 				F861037B247C6D5A00907724 /* TabBarController.swift in Sources */,
+				F8502D9C2492FB9200D3BA5B /* DeleteTableViewCell.swift in Sources */,
 				F8610377247C6D5A00907724 /* AppDelegate.swift in Sources */,
+				F8502DAD2492FBB600D3BA5B /* LabelViewController.swift in Sources */,
 				F8F7EAFC248197D50089E838 /* SelectTimezoneViewController.swift in Sources */,
 				F62245162489AC49007C41D6 /* TimerViewController.swift in Sources */,
+				F8502DAA2492FBB600D3BA5B /* AlarmTableViewController.swift in Sources */,
+				F8502DAB2492FBB600D3BA5B /* Clock.swift in Sources */,
 				F8610379247C6D5A00907724 /* SceneDelegate.swift in Sources */,
 				F62244FB24886BE8007C41D6 /* StopWatchViewController.swift in Sources */,
 				F8B9D12A247F944E000AB1B3 /* WorldClockViewController.swift in Sources */,
+				F8502DA92492FBB600D3BA5B /* SoundViewController.swift in Sources */,
+				F8502D9B2492FB9200D3BA5B /* SoundTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
